@@ -1,0 +1,26 @@
+<mat-toolbar class="navbar">
+  <div class="logo-container">
+    <img src="/logo.jpeg" alt="Logo PHS" class="logo-img">
+    <span class="logo">PHS</span>
+  </div>
+  <span class="spacer"></span>
+  <div class="nav-links">
+    <button mat-button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</button>
+    <button mat-button routerLink="/services" routerLinkActive="active">Serviços</button>
+    <button mat-button routerLink="/reviews" routerLinkActive="active">Avaliações</button>
+    <button mat-button routerLink="/location" routerLinkActive="active">Contato</button>
+  </div>
+  <button mat-icon-button (click)="toggleTheme()" class="theme-toggle" aria-label="Alternar tema">
+    <mat-icon>{{ isDark ? 'brightness_7' : 'brightness_4' }}</mat-icon>
+  </button>
+  <button mat-icon-button class="menu-toggle" (click)="toggleMobileMenu()" aria-label="Menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
+<div class="mobile-menu" [class.open]="mobileMenuOpen">
+  <button mat-button routerLink="/" (click)="closeMobileMenu()">Home</button>
+  <button mat-button routerLink="/services" (click)="closeMobileMenu()">Serviços</button>
+  <button mat-button routerLink="/reviews" (click)="closeMobileMenu()">Avaliações</button>
+  <button mat-button routerLink="/location" (click)="closeMobileMenu()">Contato</button>
+</div>
+  

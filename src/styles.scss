@@ -1,1 +1,129 @@
-/* You can add global styles to this file, and also import other style files */
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Layout base */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', 'Poppins', 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Área principal entre navbar e footer */
+main.content,
+router-outlet + * {
+  flex: 1;
+  padding-top: 80px; // Espaço para navbar fixa
+  padding-bottom: 80px; // Espaço para footer fixo
+  min-height: calc(100vh - 160px);
+}
+
+/* Estilos do Swiper */
+swiper-container {
+  --swiper-navigation-color: #F59E0B;
+  --swiper-pagination-color: #F59E0B;
+  --swiper-pagination-bullet-inactive-color: #9CA3AF;
+}
+
+/* Tema Escuro (padrão) */
+body.dark-theme {
+  background-color: #000000;
+  color: #ffffff;
+
+  main.content,
+  router-outlet + * {
+    background-color: #111111;
+  }
+}
+
+/* Tema Claro */
+body.light-theme {
+  background-color: #ffffff;
+  color: #000000;
+
+  main.content,
+  router-outlet + * {
+    background-color: #fafafa;
+  }
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #F59E0B;
+  border-radius: 5px;
+
+  &:hover {
+    background: #d97706;
+  }
+}
+
+body.light-theme {
+  ::-webkit-scrollbar-track {
+    background: #f0f0f0;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #1E3A8A;
+
+    &:hover {
+      background: #1e40af;
+    }
+  }
+}
+
+/* Animações globais */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Links globais */
+a {
+  transition: all 0.3s ease;
+}
+
+/* Material Design Overrides */
+.mat-mdc-button,
+.mat-mdc-raised-button {
+  transition: all 0.3s ease !important;
+}
+
+/* Responsividade geral */
+@media (max-width: 768px) {
+  main.content,
+  router-outlet + * {
+    padding-top: 64px;
+    padding-bottom: 70px;
+    min-height: calc(100vh - 134px);
+  }
+}

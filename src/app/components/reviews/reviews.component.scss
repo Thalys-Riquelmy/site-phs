@@ -1,0 +1,243 @@
+.reviews-container {
+  padding-top: 100px;
+  padding-bottom: 4rem;
+  min-height: calc(100vh - 80px);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.reviews-header {
+  text-align: center;
+  margin-bottom: 4rem;
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #F59E0B;
+    margin-bottom: 1rem;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  p {
+    font-size: 1.3rem;
+    color: #ffffff;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.review-card {
+  background: linear-gradient(135deg, #1E3A8A 0%, rgba(30, 58, 138, 0.8) 100%);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    transform: translateY(-5px);
+    border-color: #F59E0B;
+    box-shadow: 0 10px 30px rgba(245, 158, 11, 0.4);
+  }
+
+  mat-card-header {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    padding: 0;
+
+    .review-avatar {
+      width: 50px;
+      height: 50px;
+      min-width: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #F59E0B 0%, rgba(245, 158, 11, 0.7) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      flex-shrink: 0;
+
+      mat-icon {
+        color: #ffffff;
+        font-size: 2rem;
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+
+    .review-header-text {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+    }
+
+    mat-card-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #F59E0B;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.2;
+    }
+
+    mat-card-subtitle {
+      color: #9CA3AF;
+      font-size: 0.9rem;
+      margin-top: 0.25rem;
+      line-height: 1.2;
+    }
+  }
+
+  mat-card-content {
+    padding: 0;
+
+    .stars {
+      display: flex;
+      gap: 0.25rem;
+      margin-bottom: 1rem;
+
+      mat-icon {
+        color: #9CA3AF;
+        font-size: 1.5rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        transition: all 0.2s ease;
+
+        &.active {
+          color: #F59E0B;
+        }
+      }
+    }
+
+    .review-comment {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #ffffff;
+      margin: 0;
+      font-style: italic;
+    }
+  }
+}
+
+// Responsividade
+@media (max-width: 768px) {
+  .reviews-container {
+    padding-top: 80px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .reviews-header {
+    margin-bottom: 2rem;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .review-card {
+    padding: 1.5rem;
+
+    mat-card-header {
+      .review-avatar {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        margin-right: 0.75rem;
+
+        mat-icon {
+          font-size: 1.5rem;
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+      }
+
+      mat-card-title {
+        font-size: 1.1rem;
+      }
+
+      mat-card-subtitle {
+        font-size: 0.85rem;
+      }
+    }
+
+    mat-card-content {
+      .stars mat-icon {
+        font-size: 1.25rem;
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+
+      .review-comment {
+        font-size: 0.95rem;
+      }
+    }
+  }
+}
+
+// Tema claro
+:host-context(.light-theme) {
+  .reviews-header {
+    p {
+      color: #333333;
+    }
+  }
+
+  .review-card {
+    background: linear-gradient(135deg, #F59E0B 0%, rgba(245, 158, 11, 0.3) 100%);
+
+    mat-card-header {
+      .review-avatar {
+        background: linear-gradient(135deg, #1E3A8A 0%, rgba(30, 58, 138, 0.7) 100%);
+      }
+
+      mat-card-title {
+        color: #1E3A8A;
+      }
+
+      mat-card-subtitle {
+        color: #666666;
+      }
+    }
+
+    mat-card-content {
+      .stars mat-icon {
+        color: #cccccc;
+
+        &.active {
+          color: #1E3A8A;
+        }
+      }
+
+      .review-comment {
+        color: #000000;
+      }
+    }
+
+    &:hover {
+      border-color: #1E3A8A;
+      box-shadow: 0 10px 30px rgba(30, 58, 138, 0.4);
+    }
+  }
+}
+
