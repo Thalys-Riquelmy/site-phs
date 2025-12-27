@@ -1,0 +1,8 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/site-phs/browser",
+  "installCommand": "npm install",
+  "framework": "angular",
+  "clean": true
+}
+
